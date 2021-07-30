@@ -1,0 +1,24 @@
+<section>
+  <header>
+    <h1>Proximos lanzamientos</h1>
+  </header>
+  <div *ngIf="siguientesLanzamientos$ | async as siguientes; else cargando">
+    <article *ngFor="let lanzamiento of siguientes">
+      <header>
+        <h1>{{lanzamiento.nombre}}</h1>
+        <time>Hora de lanzamiento: {{lanzamiento.hora}}</time>
+        <time></time>
+      </header>
+      <p>Slug: {{lanzamiento.slug}} </p>
+      <p>Status: {{lanzamiento.status}} </p>
+      <p [style.color]="lanzamiento.colorEstado">Color: {{lanzamiento.colorEstado}} </p>
+    </article>
+  </div>
+  <ng-template #cargando>
+    <h1>Cargando datos!!!!</h1>
+  </ng-template>
+  <pre>
+    {{siguientesLanzamientos$ | async | json}}
+   
+  </pre>
+</section>

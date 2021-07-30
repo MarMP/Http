@@ -1,0 +1,27 @@
+<section>
+  <header>
+    <h1>Resultado de cotizaciones de divisas</h1>
+  </header>
+  <p>
+    <select name="divisas" id="divisas" [(ngModel)]="divisas">
+      <option *ngFor="let divisa of listaPaises"
+          [value]="divisa">
+          {{divisa}}
+      </option>
+  </select>
+
+   <!--
+    <label for="lista">Lista de paises</label>
+    <select id="lista" name="lista" [(ngModel)]="divisas">
+      <option *ngFor="let pais of listaPaises" [value]="pais">
+        {{pais}}
+      </option>
+    </select>
+  -->
+  </p>
+  <pre>{{divisas | json}}</pre>
+  <p>
+    <input type="button" value="Obtener" (click)="getDivisas()"/>
+  </p>
+  <pre>{{datosWS | json}}</pre>
+</section>
